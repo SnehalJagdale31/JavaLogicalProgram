@@ -1,0 +1,31 @@
+package assignments;
+
+
+
+public class GradingApplcation {
+
+	public static void main(String[] args) {
+		int maths ,physics,chemistry, average;
+		
+		
+		maths = 39;
+		physics = 89;
+		chemistry = 24;
+		
+		average = (maths + physics + chemistry)/3;
+		
+		if (maths<=35 || physics<=35 || chemistry<=35) {
+			System.out.println("You are Fail");
+		
+		} else if (average <= 59) {
+			System.out.println("C");
+			}else if (average <= 69) {
+				System.out.println("B");
+				
+			}else if (average >= 69) {
+				
+				System.out.println("A");
+			}
+	}
+
+}
