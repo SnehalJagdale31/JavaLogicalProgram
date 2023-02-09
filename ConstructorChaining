@@ -1,0 +1,41 @@
+//parent
+package MoreInheritanmceConcepts;
+
+public class SuperClass {
+	int x;
+	
+	public SuperClass() {
+		System.out.println(" no arg super class Constructor");
+	}
+	public SuperClass(int x) {
+		this();
+		this.x = x;
+		System.out.println("One arg super class Constructor");
+	}
+
+}
+
+//Child
+package inherit;
+
+import MoreInheritanmceConcepts.SuperClass;
+
+public class ChildClass extends SuperClass {
+	ChildClass(){
+		this(10);
+		
+			System.out.println(" no arg child class Constructor");
+		
+	}
+	ChildClass(int x){
+		super(x);
+		
+		System.out.println(" One arg child class Constructor");
+	
+}
+public static void main(String[] args) {
+	ChildClass  cc = new ChildClass();
+	
+	
+}
+}
