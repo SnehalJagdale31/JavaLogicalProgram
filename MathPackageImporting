@@ -1,0 +1,17 @@
+package com.snehal.assignement.java;
+import static java.lang.Math.*;
+
+import java.util.Scanner;
+
+public class MathStatement {
+
+	public static void main(String[] args) {
+		System.out.println("entr num:");
+		Scanner scanner =new Scanner(System.in);
+		int num1 = Integer.parseInt(scanner.next());
+		System.out.println(sqrt(num1));
+		System.out.println(pow(2,num1));
+
+	}
+
+}
