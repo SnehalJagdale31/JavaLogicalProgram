@@ -17,9 +17,9 @@ public class DuckNumber {
 			num = num/10;
 			
 		}if(flag == false) {
-			System.out.println("Duck");
+			System.out.println("not Duck");
 		}else {
-			System.out.println(" not Duck");
+			System.out.println(" Duck");
 		}
 		
 		scanner.close();
