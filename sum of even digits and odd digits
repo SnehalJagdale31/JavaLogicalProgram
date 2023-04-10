@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class SumOfEvens {
+
+	public static void main(String[] args) {
+
+		System.out.println("Enter the number: ");
+		Scanner scanner = new Scanner(System.in);
+		 int digit,esum=0,osum=0,num = scanner.nextInt();
+		
+		while (num!=0) {
+			digit = num%10;
+			if(digit%2==0) {
+				esum=esum+digit;
+			}else {
+				osum=osum+digit;
+			}
+			num = num/10;
+			
+		}
+		System.out.println("sum of even number is: "+ esum);
+		System.out.println("sum of odd number is: "+ osum);
+		
+		scanner.close();
+	}
+
+}
