@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class DuckNumber {
+
+	public static void main(String[] args) {
+		System.out.println("Enter the number: ");
+		Scanner scanner = new Scanner(System.in);
+		 int digit,num = scanner.nextInt();
+		boolean flag = true;
+		 
+		while (num!=0) {
+			digit = num%10;
+			if(digit!=0) {
+				flag = false ;
+			}
+			num = num/10;
+			
+		}if(flag == false) {
+			System.out.println("not Duck");
+		}else {
+			System.out.println("Duck");
+		}
+		
+		scanner.close();
+
+	}
+
+}
