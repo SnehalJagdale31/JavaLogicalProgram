@@ -12,6 +12,7 @@ public class DuckNumber {
 			digit = num%10;
 			if(digit!=0) {
 				flag = false ;
+				break;
 			}
 			num = num/10;
 			
