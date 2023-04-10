@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class CreditScore {
+
+	public static void main(String[] args) {
+
+		System.out.println("enter creditScore:");
+		Scanner scanner = new Scanner(System.in);
+		int score = scanner.nextInt();
+		
+		if(score<400 || score>850) {
+			System.out.println("invalid score");
+		}else {
+			if(score>400 && score<600) {
+				System.out.println("Silver Card");
+			}else if(score>600 && score<800){
+				System.out.println("Gold Card");
+			}else {
+				System.out.println("platinum Card");
+			}
+				
+			
+		}
+		
+	}
+	}
+	
+
