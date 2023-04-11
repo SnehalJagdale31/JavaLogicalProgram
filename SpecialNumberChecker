@@ -1,0 +1,24 @@
+//the sum of the product and addition of the two digits of the sumber should be equal to the enterd number
+
+import java.util.Scanner;
+
+public class SpecialTwoDIgitnumber {
+
+	public static void main(String[] args) {
+
+		System.out.println("enter two digit number:");
+		Scanner sc = new Scanner(System.in);
+		int num = sc.nextInt();
+		int digit1,digit2 , result = 0 ;
+		
+		
+			digit1 = num%10;
+			digit2 = num/10;
+			result = (digit1+digit2)+(digit1*digit2);
+			
+			
+		
+		System.out.println(result==num?"special":"Not so special");
+	}
+
+}
