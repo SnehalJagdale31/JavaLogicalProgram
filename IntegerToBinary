@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class IntegerToBinary {
+
+	public static void main(String[] args) {
+
+		System.out.println("enter number:");
+		Scanner scanner = new Scanner(System.in);
+		int num = scanner.nextInt(),i= 0;
+		int[] binaryNum = new int[10];
+		
+		while(num!=0) {
+			binaryNum[i] = num%2;
+			num = num/2;
+			i++;
+			
+		}
+		for(int j = i-1 ; j >= 0; j--) {
+			System.out.print(binaryNum[j]);
+		}
+	}
+
+}
