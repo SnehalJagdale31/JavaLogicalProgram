@@ -21,3 +21,6 @@ public class IntegerToBinary {
 	}
 
 }
+
+
+//we can also make the use of inbuilt funtion in java i.e.,"Integer.toBinaryString(num);".
