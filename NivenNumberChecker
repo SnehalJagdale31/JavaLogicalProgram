@@ -25,4 +25,4 @@ public class NivenNumberChecker {
 	}
 
 }
-//the nieven if the sum of digits of number is divisible by the number itself
+//the num nieven if the sum of digits of number is divisible by the number itself.
