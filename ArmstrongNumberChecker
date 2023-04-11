@@ -1,0 +1,28 @@
+//the sum of the cube of digits should be equal to the enterd temp
+
+import java.util.Scanner;
+
+public class ArmstrongChecker {
+
+	public static void main(String[] args) {
+
+
+		System.out.println("Enter the number  ");
+		Scanner scanner = new Scanner(System.in);
+		 int digit,num = scanner.nextInt(),result = 0;
+		 
+		int temp = num;
+		 
+		while (num!=0) {
+			digit = num%10;
+			result += (digit*digit*digit);
+			num = num/10;
+			
+		}
+		System.out.println(result == temp);
+		scanner.close();
+	}
+	
+}
+
+
