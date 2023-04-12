@@ -28,4 +28,4 @@ public class VowelRemover {
 
 
 //we can also replace the logic with the single method 
-         replaceAll("aeiou","");
+         replaceAll("[aeiou]","");
