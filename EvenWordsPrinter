@@ -1,0 +1,25 @@
+//it prints the word having even length..
+
+
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+public class EvenWordPrinter {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the Phrase");
+		String phrase = sc.nextLine();
+		
+		StringTokenizer tokenizer = new StringTokenizer(phrase);
+		
+		while(tokenizer.hasMoreTokens()) {
+			String eachToken = tokenizer.nextToken();
+			if(eachToken.length()%2==0) {
+				System.out.println(eachToken);
+			}
+		}
+	}
+
+}
