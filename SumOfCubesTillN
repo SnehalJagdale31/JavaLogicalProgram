@@ -1,0 +1,24 @@
+public class Power {
+	
+	
+	private static int Cubes(int num) {
+
+		if (num == 0) {
+
+		return 0;
+
+		} else {
+
+		return (int) (Math.pow(num, 3) + sumOfCubes(num - 1));
+
+		}
+
+		}
+
+
+	public static void main(String[] args) {
+
+		System.out.println(Cubes(3));
+	}
+
+}
