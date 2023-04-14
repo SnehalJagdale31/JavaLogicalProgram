@@ -31,11 +31,14 @@ public class DiagnolOfMatrix {
 			for(int j = 0;j<c;j++) {
 				
 				if(i==j) {
-					System.out.println(arr[i][j]);
+					System.out.print(arr[i][j]);
 					
+				}else {
+					System.out.print(" ");
 				}
 				
 			}
+			 System.out.println();
 		}
 		scan.close();
 	}
