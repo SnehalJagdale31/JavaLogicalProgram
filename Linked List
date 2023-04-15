@@ -24,6 +24,19 @@ public class ListNode {
 public class LinkedList {
 	
 	private ListNode head;
+	
+	
+	public void reverse() {
+		ListNode prevNode = null,nextNode = null;
+		while(head!=null) {
+			nextNode = head.getNext();
+			head.setNext(prevNode);
+			prevNode =head;
+			head = nextNode;
+
+		}
+		head = prevNode;
+	}
 
   	public void create(int data) {
   		ListNode newNode = createNewNode(data);
@@ -114,10 +127,12 @@ public class Test {
 		
 		lt.create(3);
 		
-		lt.insertAtBeginning(4);
+		lt.reverse();
+		
+	/*	lt.insertAtBeginning(4);
 		lt.insertAtTheEnd(5);
 		lt.insertAfter(2, 30);
-		
+	*/
 		
 		lt.Traverse();
 		
