@@ -1,0 +1,128 @@
+package com.snera.logicalprogramming.doublylinkedlist;
+
+
+// this is the abstract class to create the elements of the node 
+
+
+public class DLLNode {
+	
+	private int data;
+	private DLLNode prev;
+	private DLLNode next;
+	
+	
+	public int getData() {
+		return data;
+	}
+	public void setData(int data) {
+		this.data = data;
+	}
+	public DLLNode getPrev() {
+		return prev;
+	}
+	public void setPrev(DLLNode prev) {
+		this.prev = prev;
+	}
+	public DLLNode getNext() {
+		return next;
+	}
+	public void setNext(DLLNode next) {
+		this.next = next;
+	}
+	
+	
+
+}
+
+
+
+
+
+public class DoublyLinkedLIst {
+
+	private DLLNode head;
+	
+	public void create(int data) {
+		DLLNode temp,q;
+		
+		temp = createNewNode(data);
+		if(head == null) {
+			head = temp;
+		}else {
+			temp = head;
+			while(temp.getNext()!=null) {
+				temp =temp.getNext();
+				
+			}
+			
+			q = createNewNode(data);
+			temp.setNext(q);
+			q.setPrev(temp);
+		}
+		
+	}
+	
+	public void insertAtTheBeginning(int data) {
+		DLLNode newNode =createNewNode(data);
+		head.setPrev(newNode);
+		newNode.setNext(head);
+		head = newNode;
+	}
+	
+	public void insertAfter(int data,int position) {
+		if(head == null) {
+			head = createNewNode(data);
+			}else if(position == 0) {
+				DLLNode temp = createNewNode(data);
+				head.setPrev(temp);
+				temp.setNext(head);
+				head = temp;
+			}else {
+				DLLNode temp =head;
+				for(int i = 1; i<position;i++) {
+					temp = temp.getNext();
+				}
+				
+				DLLNode newNode = createNewNode(data);
+				newNode.setNext(temp.getNext());
+				newNode.setPrev(temp);
+				newNode.getNext().setPrev(newNode);
+				temp.setNext(newNode);
+			}
+		
+	}
+
+	private DLLNode createNewNode(int data) {
+
+		DLLNode node = new DLLNode();
+		node.setData(data);
+		return node;
+	}
+	
+	public void traverse() {
+		DLLNode  temp = head;
+		while(temp!=null) {
+			System.out.println(temp.getData());
+			temp = temp.getNext();
+		}
+	}
+}
+
+
+
+
+public class Test {
+	public static void main(String[] args) {
+		DoublyLinkedLIst dll = new DoublyLinkedLIst();
+		dll.create(10);
+		dll.create(20);
+		dll.create(30);
+		
+		dll.insertAtTheBeginning(100);
+		dll.insertAfter(200, 2);
+		
+		dll.traverse();
+	}
+
+}
+
