@@ -26,6 +26,20 @@ public class LinkedList {
 	private ListNode head;
 	
 	
+	public boolean hasLoop() {
+		ListNode slowPtr =head,fastPtr = head;
+		while(slowPtr!=null && fastPtr!=null && fastPtr.getNext()!=null) {
+			slowPtr =slowPtr.getNext();
+			fastPtr = fastPtr.getNext().getNext();
+			if(slowPtr == fastPtr) {
+				return true;
+			}
+			
+		}
+		return false;
+	}
+	
+	
 	public void reverse() {
 		ListNode prevNode = null,nextNode = null;
 		while(head!=null) {
@@ -101,6 +115,71 @@ public class LinkedList {
   			temp.setNext(newNode);
   		}
   	}
+	
+	public void removeFromBeginning() {
+  		ListNode temp = head;
+  		if(temp!= null) {
+  			head =temp.getNext();
+  			temp.setNext(null);
+  					
+  		}
+  	}
+	
+	public void removeMatching(int data) {
+  		ListNode p = head;
+  		if(head.getData()==data) {
+  			p=head;
+  			head = p.getNext();
+  			return;
+  		}
+  		ListNode q = head;
+  		while(q.getNext() != null) {
+  			if(q.getNext().getData == data) {
+  				p=q.getNext();
+  				q.setNext(p.getNext());
+  				return
+  			}
+  			q = q.getNext();
+  		}
+  	}
+	
+	
+//clearing the whole list
+  	
+/* 	public void clearList() {
+  		head =null;
+  	} */
+	
+	
+	public void findNthNodeFromTheEnding(int n) {
+  		ListNode nthNode = null, temp = head;
+  		
+  		if(head==null) {
+  			System.out.println("List is Empty");
+  			return;
+  			
+  		}
+  		for(int i =1;i<n;i++) {
+  			if(temp!= null) {
+  				temp = temp.getNext();
+  			}
+  		}
+  		
+  		while(temp!=null) {
+  			if(nthNode == null) {
+  				nthNode = head;
+  			}else {
+  				nthNode = nthNode.getNext();
+  			}
+  			temp = temp.getNext();
+  		}
+  		if(nthNode!= null) {
+  			System.out.println(nthNode.getData());
+  		}else {
+  			System.out.println("not enough");
+  		}
+  		
+  	}
   	
   	public void Traverse() {
   		
@@ -126,13 +205,21 @@ public class Test {
 		lt.create(2);
 		
 		lt.create(3);
+
 		
 		lt.reverse();
 		
-	/*	lt.insertAtBeginning(4);
+		lt.insertAtBeginning(4);
 		lt.insertAtTheEnd(5);
 		lt.insertAfter(2, 30);
-	*/
+		
+		lt.removeFromBeginning();
+		lt.removeMatching(2);
+		
+//		lt.clearList();
+		
+		lt.findNthNodeFromTheEnding(3);
+		
 		
 		lt.Traverse();
 		
