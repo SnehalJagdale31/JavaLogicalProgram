@@ -1,0 +1,126 @@
+public class ListNode {
+	
+	private int data;
+	private ListNode next;
+	
+	
+	public int getData() {
+		return data;
+	}
+	public void setData(int data) {
+		this.data = data;
+	}
+	public ListNode getNext() {
+		return next;
+	}
+	public void setNext(ListNode next) {
+		this.next = next;
+	}
+	
+
+}
+
+
+public class LinkedList {
+	
+	private ListNode head;
+
+  	public void create(int data) {
+  		ListNode newNode = createNewNode(data);
+  		
+		if(head == null) {
+  			head = newNode;
+  		}else {
+  			ListNode temp = head;
+  			while(temp.getNext()!=null) {
+  				temp= temp.getNext();
+  				
+  			}
+  			temp.setNext(newNode);
+  		}
+  	}
+
+	private ListNode createNewNode(int data) {
+		ListNode newNode = new ListNode();
+  		newNode.setData(data);
+  		newNode.setNext(null);
+		return newNode;
+	}
+  	
+  	public void insertAtBeginning(int data) {
+  		ListNode newNode =createNewNode(data);
+  		newNode.setNext(head);
+  		head = newNode;
+//  		System.out.println("inserted");
+  	}
+  	
+  	public void insertAtTheEnd(int data) {
+  		ListNode newNode = createNewNode(data);
+  		
+  		if(head == null) {
+  			head = newNode;
+  			
+  		}else {
+  			ListNode p = head;
+  			while(p.getNext()!= null) {
+  				p=p.getNext();
+  			}
+  			p.setNext(newNode);
+  		}
+  	}
+  	
+  	public void insertAfter(int position , int data) {
+  		ListNode newNode = createNewNode(data);
+  		
+  		if(head == null) {
+  			head = newNode;
+  		}else if(position ==0) {
+  			ListNode temp = newNode;
+  			temp.setNext(head);
+  			head = temp;
+  		}else {
+  			ListNode temp = head;
+  			
+  			for(int i =1;i<position;i++) {
+  				temp = temp.getNext();
+  			}
+  			newNode.setNext(temp.getNext());
+  			temp.setNext(newNode);
+  		}
+  	}
+  	
+  	public void Traverse() {
+  		
+  		ListNode currentNode = head;
+  		while (currentNode!=null) {
+			
+  		System.out.println(currentNode.getData());
+  		System.out.println(currentNode.getNext());
+  		currentNode = currentNode.getNext();
+  	}}
+}
+
+
+
+
+public class Test {
+
+	public static void main(String[] args) {
+
+		LinkedList lt = new LinkedList();
+		lt.create(1);
+		
+		lt.create(2);
+		
+		lt.create(3);
+		
+		lt.insertAtBeginning(4);
+		lt.insertAtTheEnd(5);
+		lt.insertAfter(2, 30);
+		
+		
+		lt.Traverse();
+		
+	}
+
+}
