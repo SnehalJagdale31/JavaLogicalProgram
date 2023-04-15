@@ -1,0 +1,71 @@
+
+public class ArrayStack {
+
+	
+	private int[] stack;
+//	private int capacity = 10;
+	private int top = -1;
+	
+	
+	public ArrayStack() {
+ 
+		this(10);
+		
+	}
+	public ArrayStack(int capacity) {
+		 
+		stack = new int[capacity];
+		
+	}
+	public int size() {
+		return top-1;
+	}
+	
+	public boolean isEmppty() {
+		return top<0;
+	}
+	
+	public void push(int data) throws Exception {
+		if(size() == stack.length) {
+			throw new Exception("Stack is full");
+		}
+		stack[++top] =data;
+		}
+	
+	public int pop() throws Exception {
+		if(isEmppty()) {
+			throw new Exception("Stack is Empty");
+			
+		}
+		int data =stack[top];
+		stack[top--]=Integer.MIN_VALUE;
+		return data;
+	}
+	
+	public int top() throws Exception {
+		if(isEmppty()) {
+			throw new Exception("Stack os Empty");
+		}
+		return stack[top];
+	}
+	}
+	
+public class Test {
+
+	public static void main(String[] args) throws Exception {
+
+		ArrayStack stack = new ArrayStack(5);
+		stack.push(10);
+		stack.push(20);
+		stack.push(30);
+		stack.push(40);
+		stack.push(50);
+		
+		System.out.println(stack.top());
+		System.out.println(stack.pop());
+		System.out.println(stack.pop());
+		System.out.println(stack.pop());
+		System.out.println(stack.pop());
+	}
+
+}
