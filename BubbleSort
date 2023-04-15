@@ -5,27 +5,49 @@ public class BubbleSort {
 		int[] number = {12,13,2,4,3,14,11};
 		
 		BubbleSort bs = new BubbleSort();
-		bs.sort(number);
+		bs.EnhancedSort(number);
 		for(int i=0;i<number.length;i++) {
 		System.out.println(number[i]);
 		}
 		
 	}
 	
-	public void sort(int[] number) {
-		System.out.println("working ");
-		for(int i=0 ; i< number.length; i++) {
-			for(int j = 0;j<number.length-1; j++) {
+	public void EnhancedSort(int[] number) {
+	
+		int i=0;
+		Boolean Swapped = true;
+		
+		while(Swapped) {
+			Swapped = false;
+			i++;
+			for(int j = 0;j<number.length-i; j++) {
 //				System.out.println("j:"+j);
 				if(number[j]>number[j+1]) {
 					int temp = number[j];
 					number[j] = number[j+1];
 					number[j+1]= temp;
 					
+					Swapped = true;
 				}
 			}
 		}
 		
 	}
+	
+//	public void sort(int[] number) {
+//		System.out.println("working ");
+//		for(int i=0 ; i< number.length; i++) {
+//			for(int j = 0;j<number.length-i; j++) {
+////				System.out.println("j:"+j);
+//				if(number[j]>number[j+1]) {
+//					int temp = number[j];
+//					number[j] = number[j+1];
+//					number[j+1]= temp;
+//					
+//				}
+//			}
+//		}
+//		
+//	}
 
 }
