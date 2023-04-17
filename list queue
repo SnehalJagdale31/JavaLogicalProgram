@@ -1,0 +1,93 @@
+package com.snera.logicalprogramming.ds.listqueues;
+
+
+public class ListQueue {
+
+	private ListNode front,rear;
+	private int size;
+	
+	public void enQueue(int data) {
+		System.out.println("Adding data: "+ data);
+		ListNode node = new ListNode();
+		node.setData(data);
+		
+		if(isEmpty()) {
+			front = node;
+			
+		}else {
+			rear.setNext(node);
+		}
+		rear = node;
+		size++;
+		
+	}
+	
+	
+	public int deQueue() throws Exception {
+		if(isEmpty()) {
+			throw new Exception("Queue is Empty");
+		}
+		
+		int data = front.getData();
+		front = front.getNext();
+		size--;
+		
+		if(isEmpty()) {
+			rear = null;
+			
+		}
+		
+		return data;
+	}
+	
+	
+      public boolean isEmpty() {
+		
+		return (size == 0);
+		
+	}
+
+      public int size() {
+    	  return size;
+      }
+      
+      public int peek() throws Exception {
+    	  if(isEmpty()) {
+  			throw new Exception("Queue is Empty");
+  		}
+    	 
+		return front.getData();
+    	  
+      }
+     
+	
+	
+}
+
+
+
+public class Test {
+
+	public static void main(String[] args) throws Exception {
+
+		ListQueue queue = new ListQueue();
+		
+		queue.enQueue(10);
+		queue.enQueue(20);
+		queue.enQueue(30);
+		queue.enQueue(40);
+		queue.enQueue(50);
+		
+		System.out.println(queue.deQueue());
+		
+		queue.enQueue(60);
+		
+		System.out.println(queue.peek());
+
+
+		
+		}
+			
+	}
+
+
