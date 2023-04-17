@@ -1,0 +1,95 @@
+public class ArrayQueue {
+	
+	private int[] queue;
+	int size,capacity,front,rear;
+	
+	public ArrayQueue(int capacity) {
+
+		queue = new int[capacity];
+		this.capacity = capacity;
+		
+		size =0;
+		size = 0;
+		front = 0;
+		rear =0;
+	
+	}
+	
+	public void enQueue(int data) throws Exception{
+		if(isFull()) {
+			throw new Exception("Queue is full");
+			
+		}
+		
+		System.out.println("Adding data " + data + " at : " + rear);
+		queue[rear] = data;
+		rear = (rear+1)%capacity;
+		size++;
+	}
+	
+	
+	public int deQueue() throws Exception{
+		if(isEmpty()) {
+			throw new Exception("Queue is Empty");
+		}
+		else {
+			System.out.println("Data deleted at the :"+ front);
+			size--;
+			
+			int data = queue[front];
+			front = (front + 1)% capacity;
+			
+			return data;
+		}
+		
+	}
+	
+	
+	public int peek() throws Exception {
+		if(isEmpty()) {
+			throw new Exception("Queue is Empty");
+		}
+		return queue[front];
+		
+	}
+	
+	public boolean isEmpty() {
+		
+		return (size == 0);
+		
+	}
+	
+	public boolean isFull() {
+		return (size == capacity);
+		
+	}
+
+}
+
+
+
+public class Test {
+
+	public static void main(String[] args) throws Exception {
+
+		ArrayQueue queue = new ArrayQueue(5);
+		
+		queue.enQueue(10);
+		queue.enQueue(20);
+		queue.enQueue(30);
+		queue.enQueue(40);
+		queue.enQueue(50);
+		
+		System.out.println(queue.deQueue());
+		
+		queue.enQueue(60);
+		
+		System.out.println(queue.peek());
+
+
+		
+		}
+			
+	}
+
+
