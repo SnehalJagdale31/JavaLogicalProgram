@@ -1,0 +1,116 @@
+public class BinarySearchTree {
+	
+	public BSTNode insertRecursive(BSTNode root,int data) {
+		
+		if(root == null) {
+			return new BSTNode(data);
+		}
+		
+		if(data<root.getData()){
+			
+			root.setLeft(insertRecursive(root.getLeft(),data));
+			
+		}else if(data>root.getData()) {
+			
+			root.setRight(insertRecursive(root.getRight(), data));
+		
+		}
+		
+		return root;
+	}
+	
+	public BSTNode insert(BSTNode root, int data) {
+		return insertRecursive(root, data);
+	}
+	
+	public void inOrder(BSTNode node) {
+		if(node!= null) {
+			inOrder(node.getLeft());
+			System.out.print(" "+ node.getData());
+			inOrder(node.getRight());
+		}
+	}
+	
+	public void preOrder(BSTNode node) {
+		if(node != null) {
+			System.out.print(" "+ node.getData());
+			preOrder(node.getLeft());
+			preOrder(node.getRight());
+		}
+	}
+	
+	public void postOrder(BSTNode node) {
+		if(node != null) {
+			
+			preOrder(node.getLeft());
+			preOrder(node.getRight());
+			System.out.println(" "+ node.getData());
+			
+		}
+	}
+
+
+	public static void main(String[] args) {
+		
+		BinarySearchTree bst = new BinarySearchTree();
+		BSTNode root = bst.insert(null,5);
+		
+		root = bst.insert(root, 3);
+		root = bst.insert(root, 4);
+		root = bst.insert(root, 2);
+		root = bst.insert(root, 6);
+		root = bst.insert(root, 7);
+		root = bst.insert(root, 8);
+		
+//		bst.inOrder(root);
+		bst.preOrder(root);
+//		bst.postOrder(root);
+
+		
+	}
+
+}
+
+
+
+
+
+public class BSTNode {
+	
+	private int data;
+	private BSTNode left,right;
+	
+	public BSTNode(int data) {
+		this.data = data;
+		left = right =null;
+	}
+
+	
+	public int getData() {
+		return data;
+	}
+
+	public void setData(int data) {
+		this.data = data;
+	}
+
+	public BSTNode getLeft() {
+		return left;
+	}
+
+	public void setLeft(BSTNode left) {
+		this.left = left;
+	}
+
+	public BSTNode getRight() {
+		return right;
+	}
+
+	public void setRight(BSTNode right) {
+		this.right = right;
+	}
+
+}
+
+
+
