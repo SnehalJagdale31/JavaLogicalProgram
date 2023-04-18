@@ -126,6 +126,16 @@ public class BinarySearchTree {
 			return findMinBSt(root.getLeft());
 		}
 	}
+	
+	public BSTNode findMaxBSt(BSTNode root) {
+		if(root == null) {
+			return null;
+		}else if(root.getRight()==null) {
+			return root;
+		}else {
+			return findMaxBSt(root.getRight());
+		}
+	}
 
 	public static void main(String[] args) {
 
@@ -149,13 +159,19 @@ public class BinarySearchTree {
 //		System.out.println(bst.size(root));
 //		BSTNode findBST = bst.findBST(root, 3);
 		
-		BSTNode node = bst.findMinBSt(root);
-		if (node != null) {
-			System.out.println(node.getData());
+//		BSTNode node = bst.findMinBSt(root);
+//		if (node != null) {
+//			System.out.println(node.getData());
+//		}
+		
+		BSTNode node2 = bst.findMaxBSt(root);
+		if (node2 != null) {
+			System.out.println(node2.getData());
 		}
 	}
 
 }
+
 
 public class BSTNode {
 	
