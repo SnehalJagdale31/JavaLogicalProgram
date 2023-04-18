@@ -1,79 +1,161 @@
+package com.snera.logicalprogramming.ds.trees;
+
 public class BinarySearchTree {
-	
-	public BSTNode insertRecursive(BSTNode root,int data) {
-		
-		if(root == null) {
+
+	public BSTNode insertRecursive(BSTNode root, int data) {
+
+		if (root == null) {
 			return new BSTNode(data);
 		}
-		
-		if(data<root.getData()){
-			
-			root.setLeft(insertRecursive(root.getLeft(),data));
-			
-		}else if(data>root.getData()) {
-			
+
+		if (data < root.getData()) {
+
+			root.setLeft(insertRecursive(root.getLeft(), data));
+
+		} else if (data > root.getData()) {
+
 			root.setRight(insertRecursive(root.getRight(), data));
-		
+
 		}
-		
+
 		return root;
 	}
-	
+
 	public BSTNode insert(BSTNode root, int data) {
 		return insertRecursive(root, data);
 	}
-	
+
 	public void inOrder(BSTNode node) {
-		if(node!= null) {
+		if (node != null) {
 			inOrder(node.getLeft());
-			System.out.print(" "+ node.getData());
+			System.out.print(" " + node.getData());
 			inOrder(node.getRight());
 		}
 	}
-	
+
 	public void preOrder(BSTNode node) {
-		if(node != null) {
-			System.out.print(" "+ node.getData());
+		if (node != null) {
+			System.out.print(" " + node.getData());
 			preOrder(node.getLeft());
 			preOrder(node.getRight());
-		}
-	}
-	
-	public void postOrder(BSTNode node) {
-		if(node != null) {
-			
-			preOrder(node.getLeft());
-			preOrder(node.getRight());
-			System.out.println(" "+ node.getData());
-			
 		}
 	}
 
+	public void postOrder(BSTNode node) {
+		if (node != null) {
+
+			preOrder(node.getLeft());
+			preOrder(node.getRight());
+			System.out.println(" " + node.getData());
+
+		}
+	}
+
+	public int max(BSTNode root) {
+		int max = 0;
+		if (root != null) {
+			int lmax = max(root.getLeft());
+			int rmax = max(root.getRight());
+
+			if (lmax > rmax) {
+				max = lmax;
+
+			} else {
+				max = rmax;
+			}
+
+			if (root.getData() > max) {
+				max = root.getData();
+			}
+		}
+		return max;
+	}
+
+	public boolean search(BSTNode root, int data) {
+
+		if (root == null) {
+			return false;
+		}
+
+		if (root.getData() == data) {
+			return true;
+		}
+		return search(root.getLeft(), data) || search(root.getRight(), data);
+
+	}
+
+	public int depth(BSTNode root) {
+		if (root == null) {
+			return 0;
+		}
+		int lDepth = depth(root.getLeft());
+		int rDepth = depth(root.getRight());
+
+		return (lDepth > rDepth) ? lDepth + 1 : rDepth + 1;
+	}
+
+	public int size(BSTNode root) {
+		int lcount = root.getLeft() == null ? 0 : size(root.getLeft());
+		int rcount = root.getRight() == null ? 0 : size(root.getRight());
+
+		return lcount + rcount + 1;
+	}
+
+	public BSTNode findBST(BSTNode root, int data) {
+
+		if (root == null) {
+			return null;
+		}
+
+		if (data > root.getData()) {
+			return findBST(root.getLeft(), data);
+		} else if (data < root.getData()) {
+			return findBST(root.getRight(), data);
+
+		}
+		return root;
+
+	}
+	
+	public BSTNode findMinBSt(BSTNode root) {
+		if(root == null) {
+			return null;
+		}else if(root.getLeft()==null) {
+			return root;
+		}else {
+			return findMinBSt(root.getLeft());
+		}
+	}
 
 	public static void main(String[] args) {
-		
+
 		BinarySearchTree bst = new BinarySearchTree();
-		BSTNode root = bst.insert(null,5);
-		
+		BSTNode root = bst.insert(null, 5);
+
 		root = bst.insert(root, 3);
 		root = bst.insert(root, 4);
 		root = bst.insert(root, 2);
 		root = bst.insert(root, 6);
 		root = bst.insert(root, 7);
 		root = bst.insert(root, 8);
-		
+
 //		bst.inOrder(root);
-		bst.preOrder(root);
+//		bst.preOrder(root);
 //		bst.postOrder(root);
 
+//		System.out.println(bst.max(root));
+//		System.out.println(bst.search(root, 5));
+//		System.out.println(bst.depth(root));
+//		System.out.println(bst.size(root));
+//		BSTNode findBST = bst.findBST(root, 3);
 		
+		BSTNode node = bst.findMinBSt(root);
+		if (node != null) {
+			System.out.println(node.getData());
+		}
 	}
 
 }
-
-
-
-
 
 public class BSTNode {
 	
