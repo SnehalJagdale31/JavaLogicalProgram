@@ -1,0 +1,41 @@
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+
+    public TreeNode(int val) {
+        this.val = val;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+public class BinaryTreeHeight {
+
+    public static int getHeight(TreeNode root) {
+        if (root == null) {
+            return 0; // Base case: Empty tree has height 0
+        } else {
+            // Recursively find the height of the left and right subtrees
+            int leftHeight = getHeight(root.left);
+            int rightHeight = getHeight(root.right);
+
+            // The height of the tree is the maximum of leftHeight and rightHeight
+            return Math.max(leftHeight, rightHeight) + 1;
+        }
+    }
+
+    public static void main(String[] args) {
+        // Construct the binary tree
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+        root.right.left = new TreeNode(6);
+        root.right.right = new TreeNode(7);
+
+        int height = getHeight(root);
+        System.out.println("Height of the binary tree: " + height);
+    }
+}
