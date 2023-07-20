@@ -1,0 +1,54 @@
+public class MatrixSum {
+
+    public static int[][] matrixSum(int[][] matrixA, int[][] matrixB) {
+        int rows = matrixA.length;
+        int columns = matrixA[0].length;
+
+        // Check if the dimensions of the matrices are the same
+        if (rows != matrixB.length || columns != matrixB[0].length) {
+            throw new IllegalArgumentException("Matrix dimensions are not the same.");
+        }
+
+        int[][] result = new int[rows][columns];
+
+        // Calculate the sum of the matrices element-wise
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                result[i][j] = matrixA[i][j] + matrixB[i][j];
+            }
+        }
+
+        return result;
+    }
+
+    public static void printMatrix(int[][] matrix) {
+        for (int[] row : matrix) {
+            for (int element : row) {
+                System.out.print(element + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+        int[][] matrixA = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+
+        int[][] matrixB = {
+            {9, 8, 7},
+            {6, 5, 4},
+            {3, 2, 1}
+        };
+
+        try {
+            int[][] sumMatrix = matrixSum(matrixA, matrixB);
+            System.out.println("Sum of the matrices:");
+            printMatrix(sumMatrix);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
