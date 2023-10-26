@@ -1,0 +1,28 @@
+(base) snehal@Snehals-MacBook-Air ~ % jshell
+|  Welcome to JShell -- Version 19.0.2
+|  For an introduction type: /help intro
+
+jshell> /imports
+|    import java.io.*
+|    import java.math.*
+|    import java.net.*
+|    import java.nio.file.*
+|    import java.util.*
+|    import java.util.concurrent.*
+|    import java.util.function.*
+|    import java.util.prefs.*
+|    import java.util.regex.*
+|    import java.util.stream.*
+
+jshell> ArrayList<String> l = new ArrayList<>();
+l ==> []
+
+jshell> l.add("abc")
+$2 ==> true
+
+jshell> l.add("xyz")
+$3 ==> true
+
+
+jshell> if(l.isEmpty()) System.out.println("Empty"); else System.out.println("Not Empty");
+Not Empty
