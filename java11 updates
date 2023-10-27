@@ -1,0 +1,40 @@
+package java11;
+
+import java.nio.file.Files;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+public class StringApiUpdates {
+	public static void main(String[] args) {
+		
+		String str ="   ";
+		System.out.println(str.isBlank());
+		
+		str = "I\am\the\boss";
+		System.out.println(str);
+		System.out.println(str.lines().collect(Collectors.toList()));
+		
+		char c = ' \u2000';
+		str = c+str;
+		System.out.println(str.strip());
+		System.out.println(str.stripLeading());
+		System.out.println(str.stripTrailing());
+		
+		System.out.println("-".repeat(100));
+		
+		//FileApi Updates
+
+		File.writeString(Files.createTempFile("test", ".txt"),"Java 11 is cool");
+		System.out.println(path);
+		String str =Files.readString(path);
+		System.out.println(str);
+		
+		//Optional Update
+		
+		Optional<String> str =Optional.of("test");
+		System.out.println(str.isEmpty());
+		
+		
+	}
+
+}
