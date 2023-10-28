@@ -1,0 +1,79 @@
+package com.snera.java1314;
+
+public class Java13and14 {
+	
+	record Employee(String name, int sal) {}
+	
+	public static void main(String[] args) {
+		
+		//content block
+		
+		String str = """
+				<html>
+		           <body>
+		              <b>i am best</b>
+		           </body>
+		         </html> 
+		
+				""";
+		System.out.println(str);
+		
+		//switch expression demo
+		
+		int key = 1;
+		String result = switch (key) {
+		case 1: {
+			
+			yield "Choice1";
+		}
+		default:
+			throw new IllegalArgumentException("Unexpected value: " + key);
+		};
+		System.out.println(result);
+		
+		
+		
+		//Switch lambda syntax
+		
+		int choice = 1;
+		String response = switch (choice) {
+		case 1 ->{
+			yield "you are right";
+		}
+		
+		case 2 ->{
+			yield "you are wrong";
+		}
+		case 3 ->{
+			yield "you are smart";
+		}
+		default ->
+		throw new IllegalArgumentException("Unexpected value: " + choice);
+		};
+		System.out.println(response);
+		
+		
+		//instance of pattern matching
+		Object object = get();
+		if(object instanceof String str1) {
+//			String str1 = (String)object;
+			System.out.println(str1);
+		}
+		
+		
+		                                 //helpful NullpointerException
+		                                                  //-xx:+ShowCodeDetailsInExceptionMessage
+		
+		//Record
+		
+		 Employee employee = new Employee("John",1000) ;
+		 System.out.println(employee);
+		
+		
+	}
+	public static Object get() {
+		return "pattern matching in action";
+	}
+	
+
+}
