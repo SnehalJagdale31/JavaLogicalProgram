@@ -1,0 +1,47 @@
+package com.snera.java12features;
+
+import java.text.NumberFormat;
+import java.util.List;
+import java.util.Locale;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class Java12Updates {
+
+	public static void main(String[] args) {
+		
+		//string API update
+
+		String s = "all power is in you";
+		System.out.println("before: "+ s);
+		System.out.println("after: "+s.indent(5));
+		
+		String s1 = "10";
+		System.out.println(s1.transform(Integer::parseInt));
+		
+//		Compact Number Instance(Number format update)
+		
+		NumberFormat format = NumberFormat.getCompactNumberInstance();
+		System.out.println(format.format(1000));
+		format = NumberFormat.getCompactNumberInstance(Locale.US,NumberFormat.Style.SHORT);
+		System.out.println(format.format(1000));
+		System.out.println(format.format(100000));
+		
+//		unicode 11 char used in chess
+		
+		System.out.println("\u265A");
+		System.out.println("\u265B");
+		System.out.println("\u2654");
+		System.out.println("\u2655");
+		
+//		Collectors API Update
+		
+		Stream.of(5,10,7,4,20).collect(Collectors.teeing(Collectors.counting(),
+				Collectors.filtering(n -> Integer.parseInt(n.toString())>10, Collectors.toList()), Result::new));
+		System.out.println(result);
+		
+			
+	}
+	
+	
+}
