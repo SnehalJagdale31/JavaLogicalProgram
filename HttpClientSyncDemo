@@ -1,0 +1,34 @@
+package com.httpclient.demo;
+
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.http.HttpClient;
+import java.net.http.HttpHeaders;
+import java.net.http.HttpRequest;
+import java.net.http.HttpRequest.BodyPublishers;
+import java.net.http.HttpResponse;
+import java.net.http.HttpResponse.BodyHandlers;
+
+public class HttpClientSyncDemo {
+
+	public static void main(String[] args) throws URISyntaxException, IOException, InterruptedException {
+
+		HttpClient client = HttpClient.newHttpClient();
+		HttpRequest request = HttpRequest.newBuilder(new URI("https://fakerestapi.azurewebsites.net/index.html")).GET().build();
+	    request = HttpRequest.newBuilder(new URI("https://fakerestapi.azurewebsites.net/index.html")).POST(BodyPublishers.ofString("{\n"
+				+ "  \"id\": 0,\n"
+				+ "  \"title\": \"string\",\n"
+				+ "  \"dueDate\": \"2023-10-28T09:31:26.565Z\",\n"
+				+ "  \"completed\": true\n"
+				+ "}")).build();
+		
+		HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
+		System.out.println("Status==>"+ response.statusCode());
+		System.out.println(response.body() );
+		HttpHeaders headers = response.headers();
+		System.out.println(headers.map());
+		
+	}
+
+}
