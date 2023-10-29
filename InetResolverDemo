@@ -1,0 +1,16 @@
+package java18;
+
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
+public class InetResolverDemo {
+
+	public static void main(String[] args) throws UnknownHostException {
+
+		InetAddress name = InetAddress.getByName("google.com");
+		System.out.println(name.getHostAddress());
+		
+	
+	}
+
+}
