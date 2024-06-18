@@ -1,3 +1,5 @@
+//A "Panagram" is a sentence containing every letter in the English Alphabet.
+
 import java.util.Scanner;
 
 public class PangramString {
